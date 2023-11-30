@@ -1,0 +1,30 @@
+.dashboard-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .search {
+    display: flex;
+    row-gap: 1rem;
+    flex: 1;
+  }
+
+  .notifications {
+    display: flex;
+    column-gap: 1rem;
+    align-items: center;
+  }
+}
+
+.dashboard-table {
+  border-radius: 2rem;
+  box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  .dashboard-table-header {
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,144 @@
+.sign {
+  display: flex;
+  background-image: linear-gradient(90deg, #39f 0%, #9cf 100%);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+
+  .sign-right-side {
+    max-width: 44rem;
+    z-index: 100;
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-top: 3.2rem;
+      margin-left: 4.9rem;
+
+      .logo-icon {
+        width: 2.8rem;
+      }
+      .logo-text {
+        font-size: 2.4rem;
+        font-weight: 600;
+        line-height: normal;
+        color: white;
+      }
+    }
+
+    .title-box {
+      margin-top: 3rem;
+      margin-left: 1rem;
+    }
+
+    .illustration {
+      display: flex;
+      flex-direction: column;
+      margin-top: 4rem;
+      :first-child {
+        align-self: end;
+        transform: translateX(60%);
+        width: 50%;
+      }
+      :last-child {
+        align-self: center;
+        width: 60%;
+      }
+    }
+  }
+
+  .sign-left-side {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background-color: white;
+    border-radius: 4rem;
+    transform: translateX(4%);
+    flex: 1;
+  }
+}
+.sign-form {
+  //
+  width: 40%;
+  .header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-bottom: 8rem;
+
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    .description {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-inline-start: 1.5rem;
+    }
+  }
+  .fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.4rem;
+
+    button {
+      padding: 1.2rem 2.4rem;
+    }
+
+    .footer {
+      p {
+        font-size: 1.8rem;
+        line-height: 1.4;
+        color: rgba(0, 0, 0, 80%);
+        text-align: center;
+        span {
+          color: #0080ff;
+          cursor: pointer;
+        }
+      }
+    }
+    .fields-box {
+      display: flex;
+      flex-direction: column;
+      row-gap: 1rem;
+      .text-input {
+        border-radius: 2rem;
+        margin-top: 1rem;
+        box-shadow: 0 0.3rem 1.5rem rgba(0, 0, 0, 5%);
+        & .MuiInputBase-root.MuiFilledInput-root::before {
+          border-radius: 2rem;
+          border-bottom: none;
+        }
+        & .MuiInputBase-root.MuiFilledInput-root {
+          border-radius: 2rem;
+        }
+        & input {
+          cursor: pointer;
+          padding: 1.4rem;
+          font-size: 1.8rem;
+        }
+        & .MuiInputBase-input.MuiFilledInput-input::after {
+          border-bottom: none;
+        }
+      }
+      :last-child {
+        display: flex;
+        justify-content: space-between;
+        :first-child {
+          //
+          .MuiTypography-root {
+            font-size: 1.6rem;
+            line-height: 1.5;
+            color: rgba(0, 0, 0, 80%);
+          }
+        }
+        a {
+          text-decoration: none;
+          font-size: 1.6rem;
+          color: #0080ff;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}

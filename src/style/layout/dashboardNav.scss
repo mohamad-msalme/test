@@ -1,0 +1,30 @@
+.dashboard-nav {
+  padding: 0 1.6rem 4rem 1.6rem;
+  height: 100%;
+  border-right: 1px dashed rgba(0, 0, 0, 0.4);
+  color: #121212;
+
+  .logo-box {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 2.4rem 1.6rem 0.8rem 1.6rem;
+
+    .text {
+      font-weight: 600;
+      font-size: 2.4rem;
+      color: #121212;
+    }
+  }
+
+  .list-items {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+
+    .subheader {
+      padding: 1.6rem 0 0.8rem 1.2rem;
+      font-size: 1.2rem;
+    }
+  }
+}
