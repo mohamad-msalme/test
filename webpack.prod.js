@@ -1,9 +1,7 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 
-module.exports = merge(common, {
+module.exports = {
   mode: "production",
   module: {
     rules: [
@@ -22,4 +20,4 @@ module.exports = merge(common, {
     }),
     // ... other production-specific plugins
   ],
-});
+};

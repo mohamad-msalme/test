@@ -1,8 +1,6 @@
-const { merge } = require("webpack-merge");
-const common = require("./webpack.common");
 const Dotenv = require("dotenv-webpack");
 
-module.exports = merge(common, {
+module.exports = {
   mode: "development",
   devServer: {
     port: 3000,
@@ -22,4 +20,4 @@ module.exports = merge(common, {
     }),
     // ... other development-specific plugins
   ],
-});
+};
