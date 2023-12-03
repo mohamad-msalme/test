@@ -83,7 +83,7 @@ const useDataGridColumns = (page: number) => {
         ),
       },
     ];
-  }, []);
+  }, [page]);
 };
 
 export { useDataGridColumns as default };
