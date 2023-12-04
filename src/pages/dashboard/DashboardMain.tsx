@@ -6,16 +6,16 @@ import DashboardTable from "./components/DashboardTable";
 
 const DashboardMain: React.FC<{}> = () => {
   return (
-    <Grid
-      display="flex"
-      flexDirection="column"
-      rowGap="4rem"
-      padding="0 4rem"
-      item
-      xs={10}
-    >
+    <Grid display="flex" flexDirection="column" rowGap="4rem" item xs={10}>
       <DashboardHeader />
-      <Box display="flex" flexDirection="column" rowGap="2rem">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          rowGap: "2rem",
+          padding: "1.6rem 4.8rem",
+        }}
+      >
         <DashboardBreadCrumbs />
         <DashboardTable />
       </Box>

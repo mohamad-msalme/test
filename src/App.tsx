@@ -1,10 +1,12 @@
 import React from "react";
-import MuiProvider from "./providers/MuiProvider";
-import AuthProvider from "./providers/AuthProvider";
-import RouteProvider from "./providers/RouteProvider";
-import ReactQueryProvider from "./providers/ReactQueryProvider";
+import {
+  AuthProvider,
+  MuiProvider,
+  ReactQueryProvider,
+  RouteProvider,
+} from "./providers";
 
-const App: React.FC<{}> = () => {
+const App: React.FC = () => {
   return (
     <ReactQueryProvider>
       <AuthProvider>

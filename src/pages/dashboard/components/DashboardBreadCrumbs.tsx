@@ -7,7 +7,7 @@ import Stack from "@mui/material/Stack";
 
 /* The code defines a functional component called `DashboardBreadCrumbs` which is a TypeScript React
 component. */
-const DashboardBreadCrumbs: React.FC<{}> = () => {
+const DashboardBreadCrumbs: React.FC = () => {
   const { parent, child } = useNavigationItem();
   const pathSegments = [parent, child].filter(Boolean); // Remove empty segments
 

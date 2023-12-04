@@ -4,7 +4,9 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 /* The code is defining a functional component called `AuthProvider` that serves as a provider for an
 authentication context in a React application. */
-const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const AuthProvider: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
   const { value: isAuthenticated, setValue } = useLocalStorage(
     "isAuthenticated",
     false,
@@ -27,5 +29,3 @@ const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     <AuthContext.Provider value={memoValue}>{children}</AuthContext.Provider>
   );
 };
-
-export { AuthProvider as default };

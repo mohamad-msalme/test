@@ -6,47 +6,39 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "main.js",
+    clean: true,
+    assetModuleFilename: "assets/images/[name][ext]",
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".ts", ".tsx"],
     alias: {
-      ".js": [".js", ".ts"],
-      ".cjs": [".cjs", ".cts"],
-      ".mjs": [".mjs", ".mts"],
+      "@api/*": path.resolve(__dirname, "src/api"),
+      "@theme/*": path.resolve(__dirname, "src/theme"),
+      "@icons/*": path.resolve(__dirname, "src/icons"),
+      "@pages/*": path.resolve(__dirname, "src/pages"),
+      "@hooks/*": path.resolve(__dirname, "src/hooks"),
+      "@styles/*": path.resolve(__dirname, "src/styles"),
+      "@context/*": path.resolve(__dirname, "src/context"),
+      "@providers/*": path.resolve(__dirname, "src/providers"),
     },
   },
   module: {
     rules: [
       {
-        test: /\.([cm]?ts|tsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: "ts-loader",
-      },
-      {
-        test: /\.(test|spec)\.tsx?$/,
-        exclude: /node_modules/,
-        use: "ts-loader",
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/fonts/[hash][ext][query]",
-        },
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
-        generator: {
-          filename: "assets/images/[hash][ext][query]",
-        },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      title: "React Webpack TypeScript",
+      title: "Soialha",
       inject: "body",
       templateParameters: {
         googleFontLink:

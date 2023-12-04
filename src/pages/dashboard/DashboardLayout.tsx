@@ -4,7 +4,7 @@ import DashboardMain from "./DashboardMain";
 import DashboardNavBar from "./components/DashboardNavBar";
 import { Outlet } from "react-router";
 
-const DashboardLayout: React.FC<{}> = () => {
+export const DashboardLayout: React.FC = () => {
   return (
     <Grid container width="100vw" height="90vh">
       <DashboardNavBar />
@@ -13,5 +13,3 @@ const DashboardLayout: React.FC<{}> = () => {
     </Grid>
   );
 };
-
-export { DashboardLayout as default };
