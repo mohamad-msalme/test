@@ -1,8 +1,8 @@
 import React from "react";
 
-import qwe from "../../../icons/Slogan.svg";
-import asd from "../../../icons/illustration.svg";
-import LogoImg from "../../../icons/LogoImg.svg";
+import qwe from "@icons/Slogan.svg";
+import asd from "@icons/illustration.svg";
+import LogoImg from "@icons/LogoImg.svg";
 
 import { Box, Stack, Typography } from "@mui/material";
 
@@ -37,10 +37,10 @@ export const Aesthetic: React.FC = () => {
         </Typography>
       </Box>
       <Box className="slogan-img-box" sx={{ padding: " 0 0 0 1rem" }}>
-        <img src={qwe} alt="" />
+        <img src={qwe} alt="" className="Img" />
       </Box>
       <Box className="illustration-img-box" pl="3rem">
-        <img src={asd} />
+        <img src={asd} className="Img" />
       </Box>
     </Stack>
   );

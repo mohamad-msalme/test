@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { useQuery } from "react-query";
 import { axiosInstance } from "../client/axiosInstanse";
 

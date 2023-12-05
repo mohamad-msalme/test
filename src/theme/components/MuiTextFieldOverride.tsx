@@ -25,7 +25,7 @@ export const MuiTextFieldOverride = ({
             transition: "all 0.3s",
             fontSize: "1.5rem",
             ":hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.12)",
+              backgroundColor: "rgba(0, 0, 0, 0.09)",
               boxShadow: " 0 0 0  1.25px rgba(0, 0, 0, 0.12)",
             },
             "&.Mui-focused": {
@@ -44,7 +44,7 @@ export const MuiTextFieldOverride = ({
             },
             "& .MuiOutlinedInput-notchedOutline": {
               border: "none",
-              boxShadow: " 0 0 0  1.25px rgba(0, 0, 0, 0.12)",
+              boxShadow: " 0 0 0 1.25px rgba(0, 0, 0, 0.09)",
             },
           },
         },

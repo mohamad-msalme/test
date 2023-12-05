@@ -12,14 +12,10 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      "@api/*": path.resolve(__dirname, "src/api"),
-      "@theme/*": path.resolve(__dirname, "src/theme"),
-      "@icons/*": path.resolve(__dirname, "src/icons"),
-      "@pages/*": path.resolve(__dirname, "src/pages"),
-      "@hooks/*": path.resolve(__dirname, "src/hooks"),
-      "@styles/*": path.resolve(__dirname, "src/styles"),
-      "@context/*": path.resolve(__dirname, "src/context"),
-      "@providers/*": path.resolve(__dirname, "src/providers"),
+      "@api/services": path.resolve(__dirname, "src/api/services"),
+      "@api/client": path.resolve(__dirname, "src/api/client"),
+      "@icons": path.resolve(__dirname, "src/icons"),
+      "@models": path.resolve(__dirname, "src/models"),
     },
   },
   module: {
@@ -40,11 +36,6 @@ module.exports = {
       template: "./public/index.html",
       title: "Soialha",
       inject: "body",
-      templateParameters: {
-        googleFontLink:
-          "https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap",
-      },
     }),
-    // ... other common plugins
   ],
 };

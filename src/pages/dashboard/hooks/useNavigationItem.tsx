@@ -1,20 +1,24 @@
-import { useEffect, useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
-
 interface NavigationItem {
   parent: string;
   pathName: string;
   child?: string;
 }
 
-const useNavigationItem = (): NavigationItem => {
+/**
+ * The `useNavigationItem` hook is a custom hook in TypeScript React that returns the current
+ * navigation item based on the current location pathname.
+ * @returns The function `useNavigationItem` returns a `NavigationItem` object.
+ */
+export const useNavigationItem = (): NavigationItem => {
   const location = useLocation();
-  const [navigationItem, setNavigationItem] = useState<NavigationItem>({
+  const [navigationItem, setNavigationItem] = React.useState<NavigationItem>({
     parent: "",
     child: "",
     pathName: location.pathname,
   });
-  useEffect(() => {
+  React.useEffect(() => {
     const pathSegments = location.pathname
       .split("/")
       .filter((segment) => segment !== "");
@@ -27,5 +31,3 @@ const useNavigationItem = (): NavigationItem => {
 
   return navigationItem;
 };
-
-export default useNavigationItem;

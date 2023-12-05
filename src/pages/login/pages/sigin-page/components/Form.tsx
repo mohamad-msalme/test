@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import React from "react";
 
-import { EmailIcon } from "../../../../../icons/EmailIcon";
-import { SecurityIcon } from "../../../../../icons/SecurityIcon";
-import { CheckboxIcon } from "../../../../../icons/CheckboxIcon";
+import { EmailIcon } from "@icons/EmailIcon";
+import { SecurityIcon } from "@icons/SecurityIcon";
+import { CheckboxIcon } from "@icons/CheckboxIcon";
 import { ErrorTextField } from "../../../components";
-import { CheckboxCheckedIcon } from  "../../../../../icons/CheckboxCheckedIcon";
+import { CheckboxCheckedIcon } from "@icons/CheckboxCheckedIcon";
 import { useFormState, useFormSubmit, useVisiblePassword } from "../hooks";
 import {
   Button,

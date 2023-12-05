@@ -17,13 +17,9 @@
     "outDir": "./dist",
     "paths": {
       "@icons/*": ["./src/icons/*"],
-      "@api/*": ["./src/api/*"],
-      "@context/*": ["./src/context/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@pages/*": ["./src/pages/*"],
-      "@providers/*": ["./src/providers/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@theme/*": ["./src/theme/*"]
+      "@api/services/*": ["./src/api/services/*"],
+      "@api/client/*": ["./src/api/client/*"],
+      "@models/*": ["./src/models/*"]
     }
   },
 

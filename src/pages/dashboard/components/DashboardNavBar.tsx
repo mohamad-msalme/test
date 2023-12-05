@@ -1,11 +1,11 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import useNavigationItem from "../hooks/useNavigationItem";
-import DashboardNavBarList from "./DashboardNavBarList";
+import { useNavigationItem } from "../hooks/useNavigationItem";
+import { DashboardNavBarList } from "./DashboardNavBarList";
 
-import LogoImg from "../../../icons/Logo.svg";
-import noteIcon from "../../../icons/note.svg";
-import activeIcon from "../../../icons/activeIcon.svg";
+import LogoImg from "@icons/Logo.svg";
+import noteIcon from "@icons/note.svg";
+import activeIcon from "@icons/activeIcon.svg";
 
 const navigationItems = [
   {
@@ -14,7 +14,7 @@ const navigationItems = [
     path: "/posts",
     children: [
       { label: "Statistics", icon: activeIcon, path: "/posts/statistics" },
-      { label: "Management", icon: activeIcon, path: "/posts/managment" },
+      { label: "Management", icon: activeIcon, path: "/posts/management" },
     ],
   },
 ];
@@ -24,7 +24,7 @@ const navigationItems = [
  * navigation bar for a dashboard.
  * @returns The DashboardNavBar component is returning a JSX element.
  */
-const DashboardNavBar: React.FC<{}> = () => {
+export const DashboardNavBar: React.FC = () => {
   const { child } = useNavigationItem();
   return (
     <Grid item xs={2}>
@@ -34,7 +34,9 @@ const DashboardNavBar: React.FC<{}> = () => {
           <div className="text">Socialha</div>
         </div>
         <div className="list-items">
-          <div className="subheader">{child}</div>
+          <div className="subheader">
+            {(child ?? "")?.slice(0, 1).toUpperCase() + child?.slice(1)}
+          </div>
           {navigationItems.map((item) => (
             <DashboardNavBarList {...item} key={item.path} />
           ))}
@@ -43,5 +45,3 @@ const DashboardNavBar: React.FC<{}> = () => {
     </Grid>
   );
 };
-
-export { DashboardNavBar as default };

@@ -25,3 +25,54 @@
     background-color: white;
   }
 }
+
+@media (min-width: 1200px) {
+  .Img {
+    width: 100%;
+  }
+  .container .aesthetic-box .slogan-img-box,
+  .container .aesthetic-box .illustration-img-box {
+    width: 150%;
+  }
+}
+
+@media (min-width: 1100px) and (max-width: 1200px) {
+  .Img {
+    width: 100%;
+  }
+  .container .aesthetic-box .slogan-img-box,
+  .container .aesthetic-box .illustration-img-box {
+    width: 150%;
+  }
+}
+@media (max-width: 600px) {
+  .Img {
+    width: 100%;
+  }
+  .container .aesthetic-box .slogan-img-box {
+    min-width: 75%;
+  }
+}
+@media (max-width: 1100px) {
+  .Img {
+    width: 100%;
+  }
+  .container .aesthetic-box .slogan-img-box {
+    align-self: center;
+    width: 50%;
+  }
+  .container .aesthetic-box .illustration-img-box {
+    display: none;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .container .page-box {
+    background-color: transparent;
+  }
+  html {
+    font-size: 8px !important;
+  }
+}

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { useMutation } from "react-query";
 import { axiosInstance } from "../client/axiosInstanse";
 
@@ -20,7 +22,6 @@ const deletePost = async (postId: string) => {
       id: Number(postId),
     },
   });
-  debugger;
   return response.data?.data?.deletePost;
 };
 

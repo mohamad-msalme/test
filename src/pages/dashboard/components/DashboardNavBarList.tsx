@@ -1,15 +1,11 @@
 // NestedList.tsx
-import React, { useState } from "react";
-import useNavigationItem from "../hooks/useNavigationItem";
+import React from "react";
 
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-
-import Oval from "../../../icons/Oval.svg";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+import Oval from "@icons/Oval.svg";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { useNavigationItem } from "../hooks/useNavigationItem";
+import { List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
 
 interface NestedListProps {
   label: string;
@@ -20,18 +16,20 @@ interface NestedListProps {
 
 /* The code defines a functional component called `DashboardNavBarList` that takes in props of type
 `NestedListProps`. */
-const DashboardNavBarList: React.FC<NestedListProps> = ({
+export const DashboardNavBarList: React.FC<NestedListProps> = ({
   label,
   icon,
   path,
   children,
 }) => {
-  const [isNestedListOpen, setIsNestedListOpen] = useState(false);
+  const [isNestedListOpen, setIsNestedListOpen] = React.useState(true);
   const { pathName } = useNavigationItem();
 
   const toggleNestedList = () => setIsNestedListOpen(!isNestedListOpen);
   const isItemActive = (path: string) => pathName.includes(path);
 
+  /* The `renderListItem` function is a helper function that takes in an item of type `NestedListProps`
+  and returns a JSX element. */
   const renderListItem = (item: NestedListProps) => (
     <ListItem key={item.path}>
       <ListItemIcon>
@@ -46,7 +44,7 @@ const DashboardNavBarList: React.FC<NestedListProps> = ({
         primary={item.label}
         sx={{
           "& .MuiTypography-root": {
-            fontSize: "1.4rem",
+            fontSize: "1.5em",
             color: isItemActive(item.path) ? "#121212" : "#000000A3",
             fontWeight: 400,
           },
@@ -83,5 +81,3 @@ const DashboardNavBarList: React.FC<NestedListProps> = ({
     </List>
   );
 };
-
-export default DashboardNavBarList;

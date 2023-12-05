@@ -1,7 +1,11 @@
 import React from "react";
 import { TFormState } from "./useFormState";
+import { useNavigate } from "react-router";
+import useAuth from "../../../../../hooks/useAuth";
 
 export const useFormSubmit = (isDirty: boolean) => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = React.useState({
     email: "",
     password: "",
@@ -43,6 +47,8 @@ export const useFormSubmit = (isDirty: boolean) => {
     if (validateForm(values)) {
       console.log(values);
       defaultFormValue.current = values;
+      login();
+      navigate("/posts/management");
     } else {
       console.error("Form validation failed");
     }

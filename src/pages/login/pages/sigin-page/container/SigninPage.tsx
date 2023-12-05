@@ -9,6 +9,15 @@ export const SigninPage: React.FC = () => {
         transform: "translateX(40%)",
         display: "flex",
         rowGap: "8rem",
+        "@media(max-width: 1200px)": {
+          transform: "none",
+        },
+        "@media(max-width: 1100px)": {
+          paddingX: "3rem",
+          paddingY: "3rem",
+          bgcolor: "white",
+          borderRadius: "2rem",
+        },
       }}
     >
       <Header />

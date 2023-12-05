@@ -1,13 +1,11 @@
-import * as React from "react";
-import useNavigationItem from "../hooks/useNavigationItem";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
+import React from "react";
+import { ArrowRightIcon } from "@icons/ArrowRightIcon";
+import { useNavigationItem } from "../hooks/useNavigationItem";
+import { Breadcrumbs, Link, Stack, Typography } from "@mui/material";
 
-/* The code defines a functional component called `DashboardBreadCrumbs` which is a TypeScript React
-component. */
-const DashboardBreadCrumbs: React.FC = () => {
+/* The code is defining a functional component called `DashboardBreadCrumbs` that renders a breadcrumb
+navigation component. */
+export const DashboardBreadCrumbs: React.FC = () => {
   const { parent, child } = useNavigationItem();
   const pathSegments = [parent, child].filter(Boolean); // Remove empty segments
 
@@ -18,17 +16,32 @@ const DashboardBreadCrumbs: React.FC = () => {
         key={segment}
         color="inherit"
         href={`/${pathSegments.slice(0, index + 1).join("/")}`}
+        sx={{
+          color: "rgba(0, 0, 0, 0.88)",
+          fontSize: "1.8rem",
+          fontWeight: 400,
+          lineHeight: 1.33,
+        }}
       >
-        {segment}
+        {(segment?.slice(0, 1).toUpperCase() ?? "") + (segment?.slice(1) ?? "")}
       </Link>
     ) : (
-      <Typography key={segment}>{segment}</Typography>
+      <Typography
+        variant="h3"
+        sx={(theme) => ({ color: theme.palette.primary.main })}
+        key={segment}
+      >
+        {(segment?.slice(0, 1).toUpperCase() ?? "") + (segment?.slice(1) ?? "")}
+      </Typography>
     ),
   );
 
   return (
     <Stack spacing={2}>
-      <Breadcrumbs aria-label="breadcrumb">
+      <Breadcrumbs
+        aria-label="breadcrumb"
+        separator={<ArrowRightIcon color="rgba(0, 0, 0, 0.4)" />}
+      >
         {breadcrumbs.length === 0 ? (
           <Typography color="text.primary">Home</Typography>
         ) : (
@@ -38,5 +51,3 @@ const DashboardBreadCrumbs: React.FC = () => {
     </Stack>
   );
 };
-
-export { DashboardBreadCrumbs as default };

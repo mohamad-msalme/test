@@ -2,8 +2,13 @@ import React from "react";
 import AuthContext from "../context/AuthContext";
 import useLocalStorage from "../hooks/useLocalStorage";
 
-/* The code is defining a functional component called `AuthProvider` that serves as a provider for an
-authentication context in a React application. */
+/**
+ * The AuthProvider component is a TypeScript React component that provides authentication
+ * functionality to its children components.
+ * @param  - - `AuthProvider`: The name of the component being exported.
+ * @returns The AuthProvider component is returning the AuthContext.Provider component with the value
+ * prop set to the memoValue object and the children prop passed as its children.
+ */
 export const AuthProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {

@@ -1,15 +1,42 @@
 import React from "react";
-import account from "../../../icons/account.png";
+import account from "@icons/account.png";
 
-import { SettingsIcon } from "../../../icons/SettingsIcon";
-import { SearchNormalIcon } from "../../../icons/SearchNormalIcon";
-import { NotificationIcon } from "../../../icons/NotificationIcon";
-import { Badge, Box, IconButton, SvgIcon, TextField } from "@mui/material";
+import useAuth from "../../../hooks/useAuth";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import { SettingsIcon } from "@icons/SettingsIcon";
+import { SearchNormalIcon } from "@icons/SearchNormalIcon";
+import { NotificationIcon } from "@icons/NotificationIcon";
+import {
+  Badge,
+  Box,
+  IconButton,
+  SvgIcon,
+  TextField,
+  Popover,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 
-/* The code defines a functional component called `DashboardHeader` using the arrow function syntax. It
-is a React component that renders a header section for a dashboard. */
-const DashboardHeader: React.FC = () => {
+export const DashboardHeader: React.FC = () => {
+  const { logout } = useAuth();
   const [state, setState] = React.useState("");
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null,
+  );
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    logout();
+  };
+
+  const open = Boolean(anchorEl);
+
   return (
     <Box
       sx={{
@@ -61,9 +88,31 @@ const DashboardHeader: React.FC = () => {
             </IconButton>
           </Badge>
           <Badge>
-            <IconButton>
+            <IconButton onClick={handleClick}>
               <SvgIcon component={SettingsIcon} />
             </IconButton>
+            <Popover
+              open={open}
+              anchorEl={anchorEl}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+            >
+              <List>
+                <ListItem button onClick={handleClose}>
+                  <ListItemIcon>
+                    <ExitToAppIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Log out" />
+                </ListItem>
+              </List>
+            </Popover>
           </Badge>
           <img style={{ cursor: "pointer" }} src={account} alt="Account" />
         </Box>
@@ -71,5 +120,3 @@ const DashboardHeader: React.FC = () => {
     </Box>
   );
 };
-
-export { DashboardHeader as default };

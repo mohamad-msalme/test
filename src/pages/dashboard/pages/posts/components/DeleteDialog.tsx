@@ -1,29 +1,32 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
+import CloseIcon from "@mui/icons-material/Close";
+import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
-import { IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useDeletePost } from "../../../api/services/useDeletePost";
-import { useFetchAllPost } from "../../../api/services/useFetchAllPost";
 
-const DeleteDialog = () => {
+import { useDeletePost } from "@api/services/useDeletePost";
+import { useFetchAllPost } from "@api/services/useFetchAllPost";
+import { IconButton, Typography } from "@mui/material";
+import { useLocation, useNavigate } from "react-router-dom";
+
+export const DeleteDialog: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { state } = location;
   const { refetch } = useFetchAllPost(state?.page ?? 0);
 
   const deletePost = useDeletePost();
-  const handleClose = () => navigate("/posts/managment");
+  const handleClose = () => navigate("/posts/management");
 
   const handleConfirm = async () => {
-    debugger;
     try {
       await deletePost(state.id as string);
+      // eslint-disable-next-line @typescript-eslint/no-floating-promises
       refetch();
       handleClose();
     } catch (error) {
@@ -47,15 +50,9 @@ const DeleteDialog = () => {
         </IconButton>
       </DialogTitle>
       <DialogContent>
-        <DialogContentText
-          sx={{
-            fontSize: "1.6rem",
-            fontWeight: 700,
-            color: "#000000E0",
-          }}
-        >
+        <Typography variant="h6">
           Do you really want to delete this post?
-        </DialogContentText>
+        </Typography>
       </DialogContent>
       <DialogActions
         sx={{
@@ -75,5 +72,3 @@ const DeleteDialog = () => {
     </Dialog>
   );
 };
-
-export default DeleteDialog;
